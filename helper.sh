@@ -4,7 +4,10 @@ cd maven-java
 # and run
 mvn compile
 
-# you will see the build be successful
+# you will see the build be successful. Note that the jar life cycle consists of
+# compile
+# package - build the jar
+# install - install the jar at maven repository.
 
 
 # Directory Template
@@ -22,3 +25,45 @@ mvn compile
 
 # using the following to create 
 mkdir -p src/main/resource
+mkdir -p src/main/java
+mkdir -p src/test/java
+mkdir -p src/test/resource
+
+# To preserve folers with Git
+touch src/main/java/.gitkeep
+touch src/main/resource/.gitkeep
+touch src/test/java/.gitkeep
+touch src/test/resource/.gitkeep
+
+# To add java source application.
+mkdir -p src/main/java/dataengineering/com/training
+# create Application.java where the package being: dataengineering.com.training;
+
+# Let go back the project root to run (package which is part of jar lifecycle).
+mvn package
+
+# If the package build successful, we will see that there is a folder
+# named "target" at the project root. Within this target folder, one of the file is 
+# "maven-java-1.0.jar". The jar file contains the compiled version of the java project. 
+# We can run the application use jave command by provide the class to run.
+java -cp  target/maven-java-1.0.jar dataengineering.com.training.Application
+
+# 8. Once we are done with our build, we can use 
+mvn clean 
+# to clean the target fold. clean is part of the clean cycles that is different from
+# the jar life cycle. After running the above command, we will see that the "target" 
+# fold will be removed.
+
+# 9. As part of the residaul removing, we can run
+mvn clean package
+# which allow us to remove any previous build before the current build. 
+# Note that clean and package are from different life cycles.
+
+# 10. maven install.
+mvn clean install
+# will install the jar at maven respository, which wil be at ~/.m2/repository/...
+# The follow command shows the .jar and .pom file in the repository. 
+ls ~/.m2/repository/com/dataengineering/maven-java/1.0                            ─╯
+# _remote.repositories maven-java-1.0.jar   maven-java-1.0.pom
+
+
