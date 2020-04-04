@@ -101,5 +101,15 @@ java -cp target/maven-java-1.0.jar dataengineering/com/training/Application
 
 
 
+# 12 Dependencies.
+# One of the main strength of Maven is its dependency management. Maven allow us to specify
+# the primary dependency, then maven will reseove additional dependency. Maven uses maven central to 
+# resovle its dependency. Maven will first look at Local repository first. Maven support 6 dependency scope:
+# Compile, Runtime, Test, Provided, System, and Import. 
+
+# 12.a Suppose we are adding StringUtil (import org.apache.commons.lang2.StringUtils;) into the Appication.java.
+# We should go to Maven Center 
+java -cp target/maven-java-1.0.jar dataengineering/com/training/Application
+
 
 
