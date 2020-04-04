@@ -1,6 +1,19 @@
 package dataengineering.com.training;
 
+import java.util.ArrayList; // ArrayList is the implementation
+import java.util.List; // List is the interfact.
+
 public class Application {
+	
+	public void greet() {
+		
+		List<String> greetings = new ArrayList<>();
+		greetings.add("Hello");
+		
+		for (String greeting: greetings) {
+			System.out.println("Greeting: + greeting");
+		}
+	}
     
     public Application() {
         System.out.println ("Inside Application");
@@ -9,6 +22,7 @@ public class Application {
     // method main(): ALWAYS the APPLICATION entry point
     public static void main (String[] args) {
     	System.out.println ("Starting Application");
-	Application app = new Application();
+    	Application app = new Application();
+    	app.greet();
     }
 }

@@ -62,8 +62,44 @@ mvn clean package
 # 10. maven install.
 mvn clean install
 # will install the jar at maven respository, which wil be at ~/.m2/repository/...
-# The follow command shows the .jar and .pom file in the repository. 
+# The follow command shows the .jar and .pom file in the repository.
+ 
 ls ~/.m2/repository/com/dataengineering/maven-java/1.0                            ─╯
+
 # _remote.repositories maven-java-1.0.jar   maven-java-1.0.pom
+# Note that Maven first finds the .pom, which is the metadata that defines what is in the .jar file.
+
+# 11. Maven plugin..
+# The default java version maven uses is 1.5. Suppose the application requires java 1.8, then one should modify the pom.xml
+# by adding the following
+ <build>
+    
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+    
+  </build>
+
+
+# The above xml can be found from: https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html
+
+# 11.a. Let run 
+mvn clean install
+
+# and 
+java -cp target/maven-java-1.0.jar dataengineering/com/training/Application
+
+# we will see the result of the greet method.
+
+
+
 
 
