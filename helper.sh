@@ -137,3 +137,19 @@ TEST-dataengineering.com.training.ApplicationTest.xml
 dataengineering.com.training.ApplicationTest.txt
 # .xml can be read by sonarcube. 
 
+# 14. Archetype.
+# 14.a. We can create a set-up using maven archetype.
+mvn archetype:generate
+# to filter it out, we can use: maven-archetype
+# it will ask you about 
+the version
+the groupid: dataengineering.com.training
+the artifacId: maven-archetype-quickstart-java
+the version: 1.0
+the pacakge: dataengineering.com.training
+
+# Change the junit version in the pom.xml
+
+# We can remove the generate project by
+rm -rf maven-archetype-quickstart-java
+
