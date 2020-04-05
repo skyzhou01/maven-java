@@ -112,4 +112,28 @@ java -cp target/maven-java-1.0.jar dataengineering/com/training/Application
 java -cp target/maven-java-1.0.jar dataengineering/com/training/Application
 
 
+# 13 test. 
+# 13.a. Create ApplicationTest.java at the test folder.
+
+# 13.b. Add junit dependency to pom.xml. The dependency can be find at here: 
+# https://mvnrepository.com/artifact/junit/junit/4.13. Note the scope is 'test'.
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13</version>
+    <scope>test</scope>
+</dependency>
+
+# 13.c. Run
+mvn test
+
+# as test is part of jar life cycle, therefore, test will run automatic if we package or install as:
+mvn clean install
+
+# 13.d. Test report. If we look into "target/surefire-reports"
+ls target/surefire-reports                                                        ─╯
+# we'll see .xml and txt file.
+TEST-dataengineering.com.training.ApplicationTest.xml
+dataengineering.com.training.ApplicationTest.txt
+# .xml can be read by sonarcube. 
 
